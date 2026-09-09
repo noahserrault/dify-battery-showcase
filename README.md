@@ -69,6 +69,6 @@ Captured September 8, 2026. These are actual application screens, not design moc
 
 ## Contact
 
-[LinkedIn](https://www.linkedin.com/in/noah-serrault-549a56252/) · [GitHub](https://github.com/notannon)
+[LinkedIn](https://www.linkedin.com/in/noah-serrault-549a56252/) · [GitHub](https://github.com/noahserrault)
 
 For a walkthrough or a discussion of the implementation, please contact me through LinkedIn.
