@@ -8,7 +8,7 @@ I'm building a web platform and mobile app for DIFY Battery, a mobile vehicle-ba
 
 This repository documents the project with screenshots and an engineering overview. The application source and company data are private.
 
-![DIFY jobs overview showing five synthetic service jobs](assets/screenshots/02-jobs-overview.jpg)
+![DIFY dispatch board showing technician assignments and synthetic service jobs](assets/screenshots/01-dispatch-overview.jpg)
 
 [View the website and app screenshots](docs/WALKTHROUGH.md)
 
