@@ -12,12 +12,12 @@ Dispatchers can compare job status, appointments, assignments, and payment infor
 
 ## Dispatch board
 
-The board groups jobs by technician and shows their status and appointment windows. These demo jobs are dated September 5, which is why they appear overdue.
+The board groups jobs by technician and shows their status and appointment windows. This refreshed capture shows three calls assigned to Technician A, two to Technician B, and one new intake awaiting assignment. These demo jobs are dated September 5, which is why they appear overdue.
 
 <details>
 <summary>View dispatcher board</summary>
 
-![Dispatcher board with five synthetic jobs assigned to a demo technician](../assets/screenshots/01-dispatch-overview.jpg)
+![Dispatcher board with three demo calls assigned to Technician A, two to Technician B, and one unassigned](../assets/screenshots/01-dispatch-balanced.png)
 
 </details>
 
