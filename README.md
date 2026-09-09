@@ -4,8 +4,6 @@ I'm building a web platform and mobile app for DIFY Battery, a mobile vehicle-ba
 
 **Developer:** [Noah Serrault](https://www.linkedin.com/in/noah-serrault-549a56252/) · Sole software developer
 
-**Status:** In development and testing on staging.
-
 This repository documents the project with screenshots and an engineering overview. The application source and company data are private.
 
 ![DIFY dispatch board with three demo calls assigned to Technician A, two to Technician B, and one unassigned](assets/screenshots/01-dispatch-balanced.png)
