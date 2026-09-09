@@ -2,17 +2,17 @@
 
 [Project overview](../README.md) · [Engineering overview](ENGINEERING.md)
 
-Actual screenshots captured September 8, 2026, from the DIFY staging website and its connected native Android sandbox app on a Pixel 8 emulator. Customers, service locations, and technicians shown in these captures are synthetic demonstration records. Click an image to inspect it at full size.
+These screenshots show the DIFY staging website and Android sandbox app on a Pixel 8 emulator. They were taken on September 8, 2026, using fictional customers, service locations, and technicians. Prices are demo examples, not advertised rates.
 
-## 1. Compare service jobs
+## Jobs
 
-The jobs view brings status, customer and service-location details, appointment windows, technician assignment, and payment summaries into one searchable table. This capture is filtered to the five tagged demonstration jobs.
+Dispatchers can compare job status, appointments, assignments, and payment information in one searchable table. This view is filtered to five demo jobs.
 
 ![Jobs table filtered to five synthetic DIFY service records](../assets/screenshots/02-jobs-overview.jpg)
 
-## 2. Coordinate dispatch
+## Dispatch board
 
-The dispatch board groups work by technician and exposes job status and appointment windows. The historical demo date intentionally preserves the existing records; overdue indicators reflect that date rather than live customer operations.
+The board groups jobs by technician and shows their status and appointment windows. These demo jobs are dated September 5, which is why they appear overdue.
 
 <details>
 <summary>View dispatcher board</summary>
@@ -21,11 +21,11 @@ The dispatch board groups work by technician and exposes job status and appointm
 
 </details>
 
-## 3. Prepare intake and a recommended quote
+## Intake and quoting
 
-The intake interface combines customer and location details, vehicle selection, technician availability, and a catalog-based recommended estimate. This example uses a fictional customer and address, with a selected battery item and itemized taxes and fees. It was not submitted as a new job.
+Dispatchers enter the customer, location, and vehicle, check technician availability, and select a battery from the catalog. The estimate includes taxes and fees. This example was filled out for the screenshot and not saved.
 
-Vehicle selection and catalog selection are separate steps in this captured workflow; the screenshot does not imply automatic compatibility approval. The application also has a separate battery-fitment lookup view.
+Vehicle selection and catalog selection are separate steps here. Battery-fitment guidance is also available in the lookup view.
 
 <details>
 <summary>View intake and recommended quote</summary>
@@ -34,9 +34,9 @@ Vehicle selection and catalog selection are separate steps in this captured work
 
 </details>
 
-## 4. Plan a technician's route
+## Route planning
 
-The planning map connects numbered stops with the technician's appointment sequence and estimated drive times. Lines show stop order, not turn-by-turn roads. Live technician GPS is hidden for this historical demonstration date.
+The map shows stop order, appointment windows, and estimated drive times. Lines connect the stops rather than following roads. Live GPS is hidden when viewing a past date.
 
 <details>
 <summary>View planning map and stop sequence</summary>
@@ -45,9 +45,9 @@ The planning map connects numbered stops with the technician's appointment seque
 
 </details>
 
-## 5. Keep service details together
+## Service records
 
-Staff can open the same job to review its vehicle, battery item, service address, schedule, and technician. This viewport capture shows the upper portion of an in-progress synthetic service record.
+Opening a job shows its vehicle, battery, service address, schedule, and assigned technician. This screenshot shows the top of an in-progress demo job.
 
 <details>
 <summary>View staff service record</summary>
@@ -56,9 +56,9 @@ Staff can open the same job to review its vehicle, battery item, service address
 
 </details>
 
-## 6. Support technicians in the field
+## Technician app
 
-The native application shows the current stop and the rest of the route, then opens a job sheet with dispatcher notes, vehicle and battery details, and installation documentation requirements.
+Technicians can see their current stop and the rest of the day's route. Opening a job brings up dispatcher notes, vehicle and battery details, and required photos.
 
 <p>
   <img src="../assets/screenshots/06-native-route.png" width="270" alt="Native technician route with the current stop and other synthetic assignments" />
@@ -66,15 +66,13 @@ The native application shows the current stop and the rest of the route, then op
   <img src="../assets/screenshots/08-native-documentation.png" width="270" alt="Native required-photo interface with old and new battery photo slots and a payment entry point" />
 </p>
 
-The photo interface makes required documentation visible alongside the service price and payment entry point. Empty photo slots are intentional: no installation photos were staged or uploaded during this capture session, and checkout was not initiated.
+The job sheet includes slots for old and new battery photos, pricing, and a checkout button. No photos were uploaded or payments taken for these screenshots.
 
-## Capture scope
+## Capture notes
 
-- Reused five existing tagged demo jobs dated September 5; no reseeding, deletion, reassignment, rescheduling, or job-status changes were performed.
-- Filled an unsaved intake form with synthetic values; no additional service job was created.
-- Used the installed Android sandbox app, version 1.0.0, updated September 4. Screenshots show that installed build, not an unbuilt working-tree revision or iOS behavior.
-- Excluded a separate completed checkout-test record from public screenshots.
-- Did not place calls, send messages, take payments, upload photos, or enable location tracking. Ordinary app authentication and read-side map/cache behavior are outside a claim of zero backend activity.
-- These screenshots demonstrate interface scope. They do not certify production rollout, payment processing, offline synchronization, or complete end-to-end acceptance.
+- Existing demo records were reused without changing their assignments, schedules, or status.
+- The Android screenshots show the installed sandbox app, version 1.0.0, updated September 4.
+- No customer calls, messages, payments, or photo uploads were made. Location tracking was not enabled.
+- These are interface examples, not a record of completed production, payment, or offline testing.
 
-The [capture checklist](SCREENSHOT_PLAN.md) remains available for future updates and a short video walkthrough.
+The [capture checklist](SCREENSHOT_PLAN.md) covers future screenshot updates and a short video.

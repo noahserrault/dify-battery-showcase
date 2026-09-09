@@ -2,9 +2,9 @@
 
 [Back to the project overview](../README.md)
 
-## One backend for two working environments
+## Architecture
 
-Dispatchers work in a desktop web interface. Technicians use a native application in the field. Both rely on the same backend and database rules.
+The Next.js website and React Native app share a Next.js and Supabase backend. Dispatchers work at a desk, while technicians need access to the same job information in the field.
 
 ```mermaid
 flowchart TB
@@ -21,30 +21,28 @@ flowchart TB
     A --> P
 ```
 
-This is a high-level component view, not an exhaustive network diagram. Client access to Supabase is authenticated and permission-scoped; it does not make clients authoritative for pricing or payment state. Native checkout also uses Square's mobile SDK, with platform-specific device validation required.
+Clients access Supabase with authenticated, permission-scoped sessions. Pricing and payment state are controlled by the backend. Native checkout also uses Square's mobile SDK.
 
-## Selected design decisions
+## Database rules
 
-### Keep business rules consistent across clients
+PostgreSQL functions handle pricing and business-critical job changes. Keeping those rules in the database avoids maintaining separate versions for the website and mobile app. Transactions and database constraints help keep records consistent when dispatchers and technicians work on the same job.
 
-A dispatcher quote and a technician's view of the same job should not depend on separately maintained pricing implementations. Pricing and business-critical job changes are handled in PostgreSQL. Transactional operations and database constraints support consistency when multiple users act on the same workflow.
+## Payment reconciliation
 
-### Treat external payments as asynchronous
+The backend uses verified Square events and reconciliation results to determine payment status. It matches payments to service jobs and keeps records for review. A successful response on the technician's screen alone does not mark a job as paid.
 
-The mobile interface is not the final authority on whether money moved. The backend processes verified provider events and reconciliation results, associates them with service jobs, and retains records for review. This separates the checkout experience from the accounting of its eventual outcome.
+## Interrupted connections
 
-### Expect retries and interrupted connections
+Technicians often work in garages and parking structures with poor reception. The app queues pending updates, and the backend uses idempotency keys to avoid repeating an operation when a request is retried. External-service requests are handled through an outbox so they can be retried separately from the original database change. Payment processing is not covered by this offline behavior.
 
-Field work can involve garages, parking structures, and inconsistent reception. Queued mobile work and idempotent backend commands address interrupted requests. Outbox processing supports retrying external side effects separately from the original database change. This does not imply that every feature, particularly payment processing, works offline.
+## Access and audit records
 
-### Protect operational records
+Role checks and row-level security limit access to operational data. Installation photos are stored privately and require authorized access. Audit records track changes to jobs so staff can review what happened.
 
-Role checks and row-level security limit who can read or change data. Service-photo access is authorized and storage is private. Audit records help explain operational changes without relying solely on what a client currently displays.
+## Testing
 
-### Match testing to the actual runtime
+I use Vitest for unit tests and Playwright for browser tests. Native checks are separate because browser tests cannot establish whether camera access, location, or Square's payment SDK work on a device. The project is still undergoing staging and device testing.
 
-Unit and browser tests cover different behavior from native-device checks. Camera, location, reader connectivity, and native checkout require their own validation. The existence of an integration or test suite is not a claim of complete production or cross-platform certification.
+## Public repository
 
-## Scope of this public repository
-
-This repository intentionally contains only portfolio documentation and, once reviewed, demonstration media. It does not include application source, database exports, internal runbooks, customer records, environment configuration, or deployment access.
+This repository contains documentation and demo screenshots. Application code, company records, credentials, and internal deployment instructions remain private.

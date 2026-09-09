@@ -1,33 +1,30 @@
-# Screenshot and walkthrough plan
+# Updating the screenshots
 
 [Back to the project overview](../README.md)
 
-Use an isolated demonstration environment with synthetic records. The first set was captured September 8, 2026; see the [published walkthrough](WALKTHROUGH.md) for actual images and scope. The list below is a guide for future captures, not a claim of completed validation. Actual filenames are linked in the walkthrough.
+The [current walkthrough](WALKTHROUGH.md) was captured on September 8, 2026. Use this checklist when replacing images or adding a video.
 
-## Capture list
+## Views to include
 
-| File to add under `assets/screenshots/` | View | Suggested caption |
-| --- | --- | --- |
-| `01-dispatch-overview.png` | Web dispatch board with several synthetic jobs and technicians | Dispatchers coordinate service requests, assignments, and job status from a shared operations view. |
-| `02-vehicle-fitment-quote.png` | Vehicle selection, compatible batteries, and demo quote | Vehicle-to-battery fitment connects intake to compatible products and shared pricing rules. |
-| `03-scheduling-map.png` | Appointment planning and map using demonstration locations | Scheduling and map-based planning connect each appointment to a technician's field work. |
-| `04-technician-job.png` | Native assigned-job detail | Technicians receive job and vehicle information in the field. |
-| `05-installation-documentation.png` | Native installation-photo workflow using staged photos | Installation documentation is connected to the service record. |
-| `06-service-payment-review.png` | Web job history or payment-review screen with synthetic data | Service history and payment records give staff context for follow-up and reconciliation. |
+- Jobs and dispatch board with several demo appointments.
+- Vehicle lookup, battery selection, and an itemized quote.
+- Planning map with a selected technician's stops.
+- Native route and job details.
+- Installation-photo requirements.
+- Job history or payment review, once suitable demo records are available.
 
-Prioritize the dispatch overview, fitment quote, and two native views. Four readable images are enough for a first public version. Only use screens that are implemented and render correctly in the demonstration build; adjust captions to match what is actually visible.
+Choose readable screens that explain the product. Save them under `assets/screenshots/` and describe only what each image shows.
 
 ## Before publishing
 
-- Use fake names, reserved example email addresses, and clearly synthetic records. Do not use a production database just to get realistic screenshots.
-- Keep real customer addresses, employee locations, phone numbers, vehicle identifiers, payment identifiers, and customer photos out of the scene. Prefer replacing source data to blurring it afterward.
-- Keep credentials, tokens, session URLs, developer tools, notifications, and internal infrastructure details out of the frame.
-- Show only demo pricing. Do not initiate real payments, send real SMS, or dispatch real jobs to create screenshots.
-- Use staged installation photos you are allowed to publish. Remove unnecessary image metadata before publication.
-- Capture web screens at a consistent desktop size and native screens at a consistent portrait size. Keep the text readable and crop unnecessary browser/device chrome.
-- Review every final image at full size before adding it to Git. Deleting a committed image later does not remove it from repository history.
-- Once images are approved, embed them in the README with concise captions and descriptive alt text. Remove the pending-capture note only when the images exist.
+- Use staging or an isolated local environment with fictional records, not production customer data.
+- Check for real names, addresses, phone numbers, vehicle identifiers, employee locations, and payment details. Replace them with demo data before capture.
+- Keep credentials, session URLs, notifications, and developer tools out of the image.
+- Do not send messages, dispatch real jobs, or take payments to prepare a screenshot.
+- Use installation photos you have permission to publish and remove unnecessary metadata.
+- Review each image at full size before committing it. Deleting it later does not remove it from Git history.
+- Update captions, alt text, links, and the capture date when replacing images.
 
 ## Optional short video
 
-A 60–90 second recording can follow the same synthetic job from dispatcher intake to the technician's view. Explain the user problem, show the fitment workflow, switch to the native app, and close with a brief explanation of the shared backend. Do not imply a successful live payment or a completed production rollout from a demonstration.
+A 60 to 90 second recording can follow a demo job from intake to the technician's screen. Start with the problem the app solves, show battery selection and dispatch, then open the job in the native app. Label it as a staging demonstration and keep payment testing separate.

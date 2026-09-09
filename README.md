@@ -1,60 +1,58 @@
 # DIFY Battery Operations Platform
 
-A dispatcher web application and native technician app for coordinating mobile vehicle-battery service—from customer intake and battery selection to field work and payment reconciliation.
+I'm building a web platform and mobile app for DIFY Battery, a mobile vehicle-battery replacement company. Dispatchers use the website to manage calls, quotes, and assignments. Technicians use the app to view jobs, document installations, and handle checkout.
 
 **Developer:** [Noah Serrault](https://www.linkedin.com/in/noah-serrault-549a56252/) · Sole software developer
 
-**Stack:** TypeScript · Next.js · React · React Native / Expo · PostgreSQL / Supabase
+**Status:** In development and testing on staging.
 
-**Status:** Active development and staging validation; production-candidate platform.
-
-This is a portfolio case study. Application source code, operational data, and credentials remain private. The scope below describes implemented functionality, not a claim that every workflow has completed production rollout or device validation.
+This repository documents the project with screenshots and an engineering overview. The application source and company data are private.
 
 ![DIFY jobs overview showing five synthetic service jobs](assets/screenshots/02-jobs-overview.jpg)
 
-[View the web and native-app walkthrough →](docs/WALKTHROUGH.md)
+[View the website and app screenshots](docs/WALKTHROUGH.md)
 
 ## Why I built it
 
-DIFY Battery delivers battery replacement service at the customer's location. Dispatchers and technicians need to coordinate vehicle compatibility, quotes, appointments, installation documentation, and payments across the same service job.
+I worked in DIFY's field operations and helped launch its Austin market before college. I returned as the company's sole software developer while studying Data Science at the University of Wisconsin–Madison.
 
-After working in DIFY's field operations and helping launch its Austin market, I returned as the company's sole software developer while pursuing my B.S. in Data Science at the University of Wisconsin–Madison. That operational experience informs the software: the goal is to consolidate workflows across multiple SaaS tools and make service knowledge easier for dispatchers and new employees to use.
+Having done the field work, I wanted to make the information needed for each job easier to find. The project brings together tasks spread across several SaaS tools, including battery selection, quoting, scheduling, and service records. The vehicle-to-battery fitment workflow is also intended to help new dispatchers learn which batteries a vehicle needs.
 
-## Application scope
+## What it does
 
-| Area | What the platform supports |
+| Area | Features |
 | --- | --- |
-| Customer intake and quoting | Capture service requests, look up vehicle-to-battery compatibility, and generate quotes using shared database pricing rules. |
-| Scheduling and dispatch | Assign technicians, manage appointments and job status, and view map-based planning information. |
-| Technician field app | View assigned jobs and route information, document installations with photos, and submit field updates through a React Native / Expo interface. |
-| Service records | Keep job history, installation documentation, warranty information, and operational audit records connected to each job. |
-| External integrations | Connect Square payment workflows, Twilio customer messaging, and Google Maps mapping and routing. |
+| Intake and quoting | Customer details, vehicle and battery lookup, catalog recommendations, and itemized estimates. |
+| Scheduling and dispatch | Technician assignments, appointment windows, job status, and route planning. |
+| Technician app | Assigned jobs, service instructions, installation photos, field updates, and checkout. |
+| Service records | Job history, photos, warranty information, and audit records. |
+| Integrations | Square payments, Twilio messaging, and Google Maps. |
 
 ### My role
 
-As the sole software developer, my work spans workflow design, web and mobile interfaces, backend APIs, database modeling, third-party integrations, and automated testing. I translate the needs of dispatchers and technicians into a shared application rather than separate tools for each role.
+I'm responsible for the web and mobile applications, backend APIs, database design, integrations, and automated tests. My previous work as a technician helps me make decisions about the information and controls people need on each screen.
 
-## Backend engineering highlights
+## Backend work
 
-- **Shared business rules:** PostgreSQL command functions handle business-critical changes and pricing so web and mobile clients use the same authoritative rules.
-- **Access control:** Role-based authorization and row-level security restrict access to operational data; service photos use private storage and authorized access.
-- **Payment reconciliation:** Square webhooks and scheduled reconciliation connect provider-confirmed payment information to service jobs instead of treating a client-side checkout response as proof of payment.
-- **Retry-safe processing:** Idempotency keys and an outbox-based retry mechanism support repeatable requests and external-service delivery without blindly duplicating work.
-- **Field connectivity:** Queued mobile mutations and photo workflows address interrupted connectivity, with server-side validation when requests reach the backend.
-- **Verification:** Vitest unit tests, Playwright browser tests, and separate mobile checks support development. Native device and payment validation are distinct from browser and unit testing.
+- PostgreSQL functions handle pricing and business-critical job changes for both applications.
+- Role checks and row-level security restrict access to job data. Installation photos are stored privately.
+- Square webhooks and scheduled reconciliation match confirmed payments to service jobs.
+- Idempotency keys protect against duplicate operations when requests are retried. An outbox handles retries for external services.
+- Mobile queues retain pending updates when a technician loses connectivity. The backend validates those updates when they arrive.
+- Vitest and Playwright cover unit and browser tests, with separate checks for the native app.
 
-See the [engineering overview](docs/ENGINEERING.md) for the architecture and design tradeoffs.
+The [engineering overview](docs/ENGINEERING.md) explains these decisions in more detail.
 
-## Visual walkthrough
+## Native app
 
-The [screenshot walkthrough](docs/WALKTHROUGH.md) shows the staging website and the native Android sandbox app using synthetic demonstration records. It covers dispatch, customer intake and catalog recommendations, map-based planning, technician job details, and the required-photo interface.
+The technician app shows the day's stops, dispatcher notes, vehicle details, and required installation photos.
 
 <p>
   <img src="assets/screenshots/06-native-route.png" width="270" alt="Native technician route showing synthetic assigned stops" />
   <img src="assets/screenshots/07-native-job.png" width="270" alt="Native service-job details with dispatch notes and installation requirements" />
 </p>
 
-Captured September 8, 2026. These are actual application screens, not design mockups. Amounts belong to demonstration workflows and are not advertised service prices. The walkthrough documents capture scope and limitations.
+Screenshots were taken on staging and an Android emulator on September 8, 2026. They use fictional customers and service locations. See the [full walkthrough](docs/WALKTHROUGH.md) for more views and capture notes.
 
 ## Technology
 
@@ -71,4 +69,4 @@ Captured September 8, 2026. These are actual application screens, not design moc
 
 [LinkedIn](https://www.linkedin.com/in/noah-serrault-549a56252/) · [GitHub](https://github.com/noahserrault)
 
-For a walkthrough or a discussion of the implementation, please contact me through LinkedIn.
+You can reach me on LinkedIn to discuss the project or arrange a walkthrough.
