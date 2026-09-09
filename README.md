@@ -10,6 +10,10 @@ A dispatcher web application and native technician app for coordinating mobile v
 
 This is a portfolio case study. Application source code, operational data, and credentials remain private. The scope below describes implemented functionality, not a claim that every workflow has completed production rollout or device validation.
 
+![DIFY jobs overview showing five synthetic service jobs](assets/screenshots/02-jobs-overview.jpg)
+
+[View the web and native-app walkthrough →](docs/WALKTHROUGH.md)
+
 ## Why I built it
 
 DIFY Battery delivers battery replacement service at the customer's location. Dispatchers and technicians need to coordinate vehicle compatibility, quotes, appointments, installation documentation, and payments across the same service job.
@@ -43,14 +47,14 @@ See the [engineering overview](docs/ENGINEERING.md) for the architecture and des
 
 ## Visual walkthrough
 
-The planned walkthrough follows one service job through dispatch and the technician app:
+The [screenshot walkthrough](docs/WALKTHROUGH.md) shows the staging website and the native Android sandbox app using synthetic demonstration records. It covers dispatch, customer intake and catalog recommendations, map-based planning, technician job details, and the required-photo interface.
 
-1. Dispatcher overview and scheduling.
-2. Vehicle selection, compatible battery lookup, and quote.
-3. Technician job details and installation documentation.
-4. Service history and payment review.
+<p>
+  <img src="assets/screenshots/06-native-route.png" width="270" alt="Native technician route showing synthetic assigned stops" />
+  <img src="assets/screenshots/07-native-job.png" width="270" alt="Native service-job details with dispatch notes and installation requirements" />
+</p>
 
-Screenshots will be added after capture using synthetic demonstration data. No customer or employee records will be published. The [capture plan](docs/SCREENSHOT_PLAN.md) defines the views and captions.
+Captured September 8, 2026. These are actual application screens, not design mockups. Amounts belong to demonstration workflows and are not advertised service prices. The walkthrough documents capture scope and limitations.
 
 ## Technology
 

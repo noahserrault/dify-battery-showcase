@@ -2,7 +2,7 @@
 
 [Back to the project overview](../README.md)
 
-Use an isolated demonstration environment with synthetic records. These are planned captures, not screenshots of completed validation.
+Use an isolated demonstration environment with synthetic records. The first set was captured September 8, 2026; see the [published walkthrough](WALKTHROUGH.md) for actual images and scope. The list below is a guide for future captures, not a claim of completed validation. Actual filenames are linked in the walkthrough.
 
 ## Capture list
 
