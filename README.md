@@ -16,6 +16,12 @@ I worked in DIFY's field operations and helped launch its Austin market before c
 
 Having done the field work, I wanted to make the information needed for each job easier to find. The project brings together tasks spread across several SaaS tools, including battery selection, quoting, scheduling, and service records. The vehicle-to-battery fitment workflow is also intended to help new dispatchers learn which batteries a vehicle needs.
 
+## From a written brief to an MVP
+
+The project began with a plain-text product document rather than an existing codebase. I wrote down the field workflow, user roles, product goals and non-goals, job lifecycle, major screens, data model, delivery phases, and acceptance tests. That document became the source of truth for the first working MVP.
+
+I used the MVP to validate the dispatcher, technician, admin, inventory, warranty, and photo workflows with local data and simulated integrations. Once those workflows were concrete, I evolved the same application toward a production architecture with Supabase, provider integrations, stronger authorization, a native technician app, and repeatable release checks. This let me move quickly without treating the prototype's shortcuts as the final design.
+
 ## What it does
 
 | Area | Features |
@@ -29,6 +35,22 @@ Having done the field work, I wanted to make the information needed for each job
 ### My role
 
 I'm responsible for the web and mobile applications, backend APIs, database design, integrations, and automated tests. My previous work as a technician helps me make decisions about the information and controls people need on each screen.
+
+## Development standards, CI/CD, and AI-assisted delivery
+
+I established the project's engineering process alongside the product. Requirements, architecture decisions, acceptance criteria, setup instructions, known defects, and verification evidence are kept in version-controlled documentation. Changes are scoped against those documents, reviewed as diffs, and tested in proportion to their risk.
+
+I use AI coding tools deliberately to accelerate implementation and analysis, but I do not treat generated output as correct by default. I verify the actual code, run the relevant automated checks, and require independent review for sensitive authentication, payment, and privileged-database changes. Bugs that escape become regression tests or stronger automated checks.
+
+GitHub Actions validates every push and pull request through separate web, mobile, Android, and local-database jobs. The pipeline includes:
+
+- Contract verification, linting, TypeScript checks, Vitest suites, production builds, and dependency auditing.
+- A fresh local Supabase stack for schema checks, generated-type drift, database integration tests, and a 100-job load simulation.
+- Playwright end-to-end journeys for dispatcher and technician workflows, offline behavior, checkout, and payment operations.
+- React Native test suites plus an Android debug build and artifact inspection.
+- Separate security workflows for dependency, secret, static-analysis, and CodeQL checks.
+
+Release gates require the source-validation jobs to pass. Staging uses separate Vercel and Supabase environments, and deployment remains a controlled step with environment checks and documented rollback procedures. The [engineering overview](docs/ENGINEERING.md) describes the architecture and validation strategy in more detail.
 
 ## Backend work
 
